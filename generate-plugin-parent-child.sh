@@ -67,8 +67,9 @@ until [ -n "${CHILDID}" ]; do
 done
 
 CHILDFILE="$(echo "${CHILDID}" | sed -e 's@\.@/@g').xml"
-if [ ! -f "${CHILDID}" ]; then
-  echo "${_0}: error: child plugin file not found: ${CHILDFILE}"
+REALCHILDFILE="plugins/classes/${CHILDFILE}"
+if [ ! -f "${REALCHILDID}" ]; then
+  echo "${_0}: error: child plugin file not found: ${REALCHILDFILE}"
   exit 1
 fi
 
@@ -77,8 +78,9 @@ CHILDDIR="$(dirname "${CHILDFILE}")"
 JARFILE="/tmp/${CHILDNAME}.jar"
 
 PARENTDIR="$(dirname "$(echo "${PARENTID}" | sed -e 's@\.@/@g')")"
-if [ ! -d "${PARENTDIR}" ]; then
-  echo "${_0}: error: parent plugin directory not found: ${PARENTDIR}"
+REALPARENTDIR="plugins/classes/${PARENTDIR}"
+if [ ! -d "${REALPARENTDIR}" ]; then
+  echo "${_0}: error: parent plugin directory not found: ${REALPARENTDIR}"
   exit 1
 fi
 
