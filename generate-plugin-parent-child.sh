@@ -68,7 +68,7 @@ done
 
 CHILDFILE="$(echo "${CHILDID}" | sed -e 's@\.@/@g').xml"
 REALCHILDFILE="plugins/classes/${CHILDFILE}"
-if [ ! -f "${REALCHILDID}" ]; then
+if [ ! -f "${REALCHILDFILE}" ]; then
   echo "${_0}: error: child plugin file not found: ${REALCHILDFILE}"
   exit 1
 fi
