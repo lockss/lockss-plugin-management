@@ -123,7 +123,7 @@ elif [ ! -w "${JARFILE}" ]; then
     exit 6
   fi
   cp "${MYJAR}" "${JARFILE}"
-  if [ $? != 0]; then
+  if [ $? != 0 ]; then
     echo "${_0}: error: cp failed around line ${LINENO}"
     exit 7
   fi
