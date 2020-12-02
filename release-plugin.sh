@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Copyright (c) 2000-2019, Board of Trustees of Leland Stanford Jr. University
+# Copyright (c) 2000-2020, Board of Trustees of Leland Stanford Jr. University
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -76,7 +76,7 @@ fi
 
 JARFILE="${REGISTRY}/$(basename "${MYJAR}")"
 
-if command -v chcon > /dev/null && command -v semanage > /dev/null ; then
+if command -v selinuxenabled > /dev/null && selinuxenabled && command -v chcon > /dev/null ; then
   CHCON='chcon'
 else
   CHCON=':'
